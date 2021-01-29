@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "publish": "ng build picker && cp -f README.md dist/picker && cd dist/picker && nrm use npm && npm publish",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
