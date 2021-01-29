@@ -24,10 +24,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     NziPickerModule,
     NzButtonModule,
-    FormsModule,
     NzInputModule,
     NzFormModule,
-    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

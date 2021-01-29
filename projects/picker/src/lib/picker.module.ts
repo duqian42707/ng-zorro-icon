@@ -1,9 +1,8 @@
 import {NgModule} from '@angular/core';
 import {NziPickerComponent} from './picker.component';
 import {NzIconModule, NzInputModule, NzModalModule, NzSkeletonModule, NzToolTipModule} from 'ng-zorro-antd';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -11,8 +10,6 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
     NzIconModule,
     NzModalModule,
     NzInputModule,

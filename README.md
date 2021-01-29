@@ -26,7 +26,8 @@ import {NziPickerModule} from 'ng-zorro-icon';
   ],
   imports: [
     // ...
-    
+    BrowserAnimationsModule,
+    HttpClientModule,
     // 引入模块
     NziPickerModule
   ],
