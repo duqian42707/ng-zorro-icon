@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "icon-picker": [
-        "dist/icon-picker"
+      "picker": [
+        "dist/picker"
       ],
-      "icon-picker/*": [
-        "dist/icon-picker/*"
+      "picker/*": [
+        "dist/picker/*"
       ]
     }
   },

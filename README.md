@@ -8,7 +8,7 @@ ng new ng-zorro-icon --create-application=false
 
 ```bash
 cd ng-zorro-icon
-ng g library icon-picker --prefix nzi
+ng g library picker --prefix nzi
 ```
 
 ```bash

@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {IconPickerModule} from 'projects/icon-picker/src/public-api';
+import {PickerModule} from 'projects/picker/src/public-api';
 import {NzButtonModule} from 'ng-zorro-antd';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -15,7 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    IconPickerModule,
+    PickerModule,
     NzButtonModule
   ],
   providers: [],

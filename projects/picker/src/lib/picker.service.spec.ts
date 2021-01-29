@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IconPickerService } from './icon-picker.service';
+import { PickerService } from './picker.service';
 
-describe('IconPickerService', () => {
+describe('PickerService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: IconPickerService = TestBed.get(IconPickerService);
+    const service: PickerService = TestBed.get(PickerService);
     expect(service).toBeTruthy();
   });
 });
