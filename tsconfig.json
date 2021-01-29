@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "icon-picker": [
+        "dist/icon-picker"
+      ],
+      "icon-picker/*": [
+        "dist/icon-picker/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
