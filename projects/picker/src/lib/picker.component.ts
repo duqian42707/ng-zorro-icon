@@ -1,31 +1,35 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {IconGroup, ICON_GROUPS} from './picker.model';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {ICON_GROUPS, IconGroup} from './picker.model';
+
+const DEFAULT_DISPLAY_ICON = 'search';
 
 @Component({
   selector: 'nzi-picker',
   templateUrl: './picker.component.html',
   styleUrls: ['./picker.component.less']
 })
-export class PickerComponent implements OnInit, OnChanges {
-  @Input() visible = false;
-  @Output() visibleChange = new EventEmitter<boolean>();
-  // 已选择的
-  @Input() selectedIcon: string = null;
-  @Output() nziOnPickOk = new EventEmitter<string>();
+export class NziPickerComponent implements OnInit, OnChanges {
 
+  loading = false;
   iconGroups: IconGroup[] = [];
-  searchKey: string;
   value: string;
-
+  displayIcon = DEFAULT_DISPLAY_ICON;
   // 控制弹框的一些属性
   modal = {
-    visible: false
+    title: '选择图标',
+    width: '800px',
+    searchKey: null,
+    visible: false,
+    value: null,
   };
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  afterOpen() {
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -40,34 +44,41 @@ export class PickerComponent implements OnInit, OnChanges {
 
   // 打开弹框
   openModal(): void {
-    this.searchKey = null;
-    this.iconGroups = [...ICON_GROUPS];
-    if (this.selectedIcon) {
-      this.value = this.selectedIcon;
-    } else {
-      this.value = this.iconGroups[0].icons[0];
-    }
     this.modal.visible = true;
-    this.visibleChange.emit(true);
+    this.loading = true;
+    // todo 改用rxjs实现
+    setTimeout(() => {
+      this.modal.searchKey = null;
+      this.iconGroups = [...ICON_GROUPS];
+
+      this.modal.value = this.iconGroups[0].icons[0];
+      if (this.value) {
+        const exist = ICON_GROUPS.some(group => {
+          return group.icons.some(icon => icon === this.value);
+        });
+      }
+
+      this.modal.value = this.value;
+      this.loading = false;
+    }, 1);
   }
 
   // 关闭弹框
   closeModal(): void {
     this.modal.visible = false;
-    this.visibleChange.emit(false);
   }
 
   // 选好图标
   pickOk(): void {
-    this.nziOnPickOk.emit(this.value);
+    this.value = this.modal.value;
     this.closeModal();
   }
 
   // 搜索
   search(): void {
-    if (this.searchKey) {
+    if (this.modal.searchKey) {
       this.iconGroups = ICON_GROUPS.map(group => {
-        const filteredIcons = group.icons.filter(icon => icon.toLowerCase().includes(this.searchKey.toLowerCase()));
+        const filteredIcons = group.icons.filter(icon => icon.toLowerCase().includes(this.modal.searchKey.toLowerCase()));
         const newGroup = {
           groupName: group.groupName,
           icons: filteredIcons
@@ -81,7 +92,15 @@ export class PickerComponent implements OnInit, OnChanges {
 
   // 点击选中一个图标
   clickIcon(icon): void {
-    this.value = icon;
+    this.modal.value = icon;
+  }
+
+  valueChange() {
+    const value = this.value;
+    const exist = ICON_GROUPS.some(group => {
+      return group.icons.some(icon => icon === value);
+    });
+    this.displayIcon = exist ? value : DEFAULT_DISPLAY_ICON;
   }
 
 }

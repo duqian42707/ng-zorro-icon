@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
-import {PickerComponent} from './picker.component';
-import {NzIconModule, NzInputModule, NzModalModule, NzToolTipModule} from 'ng-zorro-antd';
+import {NziPickerComponent} from './picker.component';
+import {NzIconModule, NzInputModule, NzModalModule, NzSkeletonModule, NzToolTipModule} from 'ng-zorro-antd';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -8,18 +8,19 @@ import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [PickerComponent],
+  declarations: [NziPickerComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
     NzIconModule,
     NzModalModule,
     NzInputModule,
-    FormsModule,
     NzToolTipModule,
+    NzSkeletonModule,
   ],
-  exports: [PickerComponent]
+  exports: [NziPickerComponent]
 })
-export class PickerModule {
+export class NziPickerModule {
 }
