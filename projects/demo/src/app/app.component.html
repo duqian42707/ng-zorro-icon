@@ -1,4 +1,4 @@
 
 <button nz-button nzType="primary" (click)="choose()">选择图标</button>
 
-<nzi-picker></nzi-picker>
+<nzi-picker [selectedIcon]="'upload'" [(visible)]="picker.visible" (nziOnPickOk)="onPickOk($event)"></nzi-picker>

@@ -15,4 +15,8 @@ export class AppComponent {
   choose() {
     this.picker.visible = true;
   }
+
+  onPickOk(iconName) {
+    console.log('选择了图标：', iconName);
+  }
 }

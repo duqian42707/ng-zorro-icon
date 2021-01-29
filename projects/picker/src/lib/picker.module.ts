@@ -1,12 +1,23 @@
 import {NgModule} from '@angular/core';
 import {PickerComponent} from './picker.component';
-import {NzIconModule} from 'ng-zorro-antd';
+import {NzIconModule, NzInputModule, NzModalModule, NzToolTipModule} from 'ng-zorro-antd';
+import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
   declarations: [PickerComponent],
   imports: [
-    NzIconModule
+    CommonModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NzIconModule,
+    NzModalModule,
+    NzInputModule,
+    FormsModule,
+    NzToolTipModule,
   ],
   exports: [PickerComponent]
 })

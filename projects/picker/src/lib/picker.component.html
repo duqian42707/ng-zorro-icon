@@ -1,9 +1,23 @@
-<div>
-  asdffaa
-</div>
-<i nz-icon nzType="search"></i>
-<i nz-icon nzType="plus"></i>
-<i nz-icon nzType="upload"></i>
-<i nz-icon nzType="download"></i>
-<i nz-icon nzType="import"></i>
-<i nz-icon nzType="export"></i>
+<nz-modal [nzTitle]="'选择图标'" [nzWidth]="'800px'" [(nzVisible)]="modal.visible" (nzOnOk)="pickOk()"
+          (nzOnCancel)="closeModal()">
+  <!-- 搜索框 -->
+  <nz-input-group [nzSuffix]="suffixIconSearch">
+    <input type="text" nz-input placeholder="输入图标名称进行搜索" [(ngModel)]="searchKey" (keyup)="search()"/>
+    <ng-template #suffixIconSearch>
+      <i nz-icon nzType="search"></i>
+    </ng-template>
+  </nz-input-group>
+  <!-- 主体部分 -->
+  <div class="container">
+    <ng-container *ngFor="let group of iconGroups">
+      <div class="group-name">{{group.groupName}}</div>
+      <div class="group-container">
+        <div class="item" [class.item-selected]="icon==value" *ngFor="let icon of group.icons" nz-tooltip
+             [nzTooltipTitle]="icon"
+             (click)="clickIcon(icon)">
+          <i nz-icon [nzType]="icon" nzTheme="outline"></i>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</nz-modal>
