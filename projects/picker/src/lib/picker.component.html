@@ -1,4 +1,4 @@
-<nz-input-group class="form-input-group" [nzAddOnAfter]="addOnAfterTemplate">
+<nz-input-group class="nzi-picker-input-group" [nzAddOnAfter]="addOnAfterTemplate">
   <input [disabled]="disabled" nz-input [placeholder]="'输入或选择'" [(ngModel)]="value"
          (ngModelChange)="setDisplayIcon($event)"/>
   <ng-template #addOnAfterTemplate>
@@ -6,7 +6,7 @@
   </ng-template>
 </nz-input-group>
 
-<nz-modal [nzTitle]="modal.title" [nzWidth]="modal.width" [nzOkLoading]="loading" [(nzVisible)]="modal.visible"
+<nz-modal class="nzi-picker-modal" [nzTitle]="modal.title" [nzWidth]="modal.width" [nzOkLoading]="loading" [(nzVisible)]="modal.visible"
           (nzOnOk)="pickOk()" (nzOnCancel)="closeModal()">
   <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzParagraph]="{ rows: 5 }">
     <!-- 搜索框 -->

@@ -11,15 +11,15 @@ import {HttpClientModule} from '@angular/common/http';
   declarations: [NziPickerComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule,
     NzIconModule,
     NzModalModule,
     NzInputModule,
     NzToolTipModule,
     NzSkeletonModule,
-    ReactiveFormsModule,
   ],
   exports: [NziPickerComponent]
 })

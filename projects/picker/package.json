@@ -9,6 +9,13 @@
     "@angular/core": "^8.2.14",
     "ng-zorro-antd": "^8.5.2"
   },
+  "keywords": [
+    "ng-zorro",
+    "angular",
+    "ui",
+    "icon",
+    "frontend"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:duqian42707/ng-zorro-icon.git"

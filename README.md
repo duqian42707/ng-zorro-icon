@@ -1,4 +1,4 @@
-# NgZorroIcon
+# ng-zorro-icon
 
 [![](https://img.shields.io/npm/v/ng-zorro-icon.svg)](https://www.npmjs.com/package/ng-zorro-icon)
 
@@ -6,31 +6,79 @@ Icon Picker of [NG-ZORRO](https://github.com/NG-ZORRO/ng-zorro-antd) (version 8.
 
 [NG-ZORRO](https://github.com/NG-ZORRO/ng-zorro-antd) (version 8.x) 的图标选择器。
 
-## 使用方法(Usage)
+## Install - 安装
 
-见[文档](./projects/picker/README.md)
-
-## 项目建立过程记录
-
-创建空项目
 ```bash
-ng new ng-zorro-icon --create-application=false
+npm install ng-zorro-icon
 ```
 
-创建库
-```bash
-cd ng-zorro-icon
-ng g library picker --prefix nzi
+
+## Usage - 使用
+
+### Import module - 引入模块
+
+```typescript
+import {NziPickerModule} from 'ng-zorro-icon';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    // ...
+    
+    // 引入模块
+    NziPickerModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
 ```
 
-创建演示应用
-```bash
-ng g application demo
+### Simple usage - 简单用法
+
+```html
+<nzi-picker [(ngModel)]="icon"></nzi-picker>
 ```
 
-打包并发布库
-```bash
-ng build picker
-cd dist/picker
-npm publish
+### Used in a form - 在表单中使用
+
+```html
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>文字</nz-form-label>
+      <nz-form-control [nzSpan]="18" [nzErrorTip]="'请输入文字'">
+        <input nz-input formControlName="text">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>图标</nz-form-label>
+      <nz-form-control [nzSpan]="18" [nzErrorTip]="'请选择图标'">
+        <nzi-picker formControlName="icon"
+                    (ngModelChange)="valueChange($event)"
+                    (nziOnPicked)="onPicked($event)"
+        ></nzi-picker>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzSpan]="18" [nzOffset]="6">
+        <button nz-button [nzType]="'primary'">确定</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
 ```
+
+
+
+## API
+
+### [nzi-picker] - `COMPONENT`
+
+| 参数            | 说明                   | 类型                   | 默认值 |
+| --------------- | ---------------------- | ---------------------- | ------ |
+| [ngModel]       | 图标名称               | `string`               | -      |
+| (ngModelChange) | 图标名称发生变化的回调 | `EventEmitter<string>` | -      |
+| (nziOnPicked)   | 通过弹框选择图标的回调 | `EventEmitter<string>` | -      |
+
