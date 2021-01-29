@@ -1,6 +1,8 @@
 # ng-zorro-icon
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+[![](https://img.shields.io/npm/v/ng-zorro-icon.svg)](https://www.npmjs.com/package/ng-zorro-icon)
+
+Icon Picker of [NG-ZORRO](https://github.com/NG-ZORRO/ng-zorro-antd) (version 8.x).
 
 ## startup
 
@@ -11,7 +13,7 @@ npm install ng-zorro-icon
 `app.module.ts`:
 ```typescript
 
-import {PickerModule} from 'projects/picker/src/public-api';
+import {PickerModule} from 'ng-zorro-icon';
 
 @NgModule({
   declarations: [
