@@ -1,12 +1,19 @@
-<nz-input-group class="nzi-picker-input-group" [nzAddOnAfter]="addOnAfterTemplate">
-  <input [disabled]="disabled" nz-input [placeholder]="'输入或选择'" [(ngModel)]="value"
+<nz-input-group class="nzi-picker-input-group" [nzSuffix]="nziAllowClear?clearIconTemplate:null"
+                [nzAddOnAfter]="iconLabelTemplate">
+  <input nz-input [nzSize]="nziSize" [disabled]="disabled" [placeholder]="nziPlaceHolder" [(ngModel)]="value"
          (ngModelChange)="setDisplayIcon($event)"/>
-  <ng-template #addOnAfterTemplate>
+  <ng-template #iconLabelTemplate>
     <i class="input-btn" nz-icon [nzType]="displayIcon" (click)="openModal()"></i>
+  </ng-template>
+  <ng-template #clearIconTemplate>
+    <i nz-icon nz-tooltip class="ant-input-clear-icon"
+       nzTheme="fill" nzType="close-circle"
+       *ngIf="value" (click)="value = null"></i>
   </ng-template>
 </nz-input-group>
 
-<nz-modal class="nzi-picker-modal" [nzTitle]="modal.title" [nzWidth]="modal.width" [nzOkLoading]="loading" [(nzVisible)]="modal.visible"
+<nz-modal class="nzi-picker-modal" [nzTitle]="modal.title" [nzWidth]="modal.width" [nzOkLoading]="loading"
+          [(nzVisible)]="modal.visible"
           (nzOnOk)="pickOk()" (nzOnCancel)="closeModal()">
   <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzParagraph]="{ rows: 5 }">
     <!-- 搜索框 -->

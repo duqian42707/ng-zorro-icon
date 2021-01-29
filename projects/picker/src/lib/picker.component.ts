@@ -1,6 +1,7 @@
-import {Component, EventEmitter, forwardRef, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {ICON_GROUPS, IconGroup} from './picker.model';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {InputBoolean} from 'ng-zorro-antd';
 
 const DEFAULT_DISPLAY_ICON = 'search';
 
@@ -18,8 +19,11 @@ export class NziPickerComponent implements OnInit, OnChanges, ControlValueAccess
 
   private innerValue: string;
 
+  @Input() @InputBoolean() nziAllowClear = false;
+  @Input() nziPlaceHolder: string;
   @Output() nziOnPicked = new EventEmitter<string>();
 
+  nziSize: 'default' | 'large' | 'small' = 'default';
   loading = false;
   iconGroups: IconGroup[] = [];
   disabled = false;

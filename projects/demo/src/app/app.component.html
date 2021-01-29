@@ -1,24 +1,55 @@
-<div class="container">
-  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
-    <nz-form-item>
-      <nz-form-label [nzSpan]="6" nzRequired>文字</nz-form-label>
-      <nz-form-control [nzSpan]="18" [nzErrorTip]="'请输入文字'">
-        <input nz-input formControlName="text">
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="6" nzRequired>图标</nz-form-label>
-      <nz-form-control [nzSpan]="18" [nzErrorTip]="'请选择图标'">
-        <nzi-picker formControlName="icon"
-                    (ngModelChange)="valueChange($event)"
-                    (nziOnPicked)="onPicked($event)"
-        ></nzi-picker>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-control [nzSpan]="18" [nzOffset]="6">
-        <button nz-button [nzType]="'primary'">确定</button>
-      </nz-form-control>
-    </nz-form-item>
-  </form>
-</div>
+<article nz-typography class="container">
+  <h1 nz-title>介绍</h1>
+  <p nz-paragraph>
+    NG-ZORRO 的图标选择器。<a href="https://github.com/duqian42707/ng-zorro-icon#readme">使用文档</a>
+  </p>
+
+  <h2 nz-title>基本使用</h2>
+  <p nz-paragraph>
+    <nzi-picker nziPlaceHolder="Basic usage" [(ngModel)]="icon"></nzi-picker>
+  </p>
+
+  <!--  <h2 nz-title>三种大小</h2>-->
+  <!--  <p nz-paragraph>-->
+  <!--    <nzi-picker nziPlaceHolder="large size" nziSize="large" [(ngModel)]="icon"></nzi-picker>-->
+  <!--    <nzi-picker nziPlaceHolder="default size" nziSize="default" [(ngModel)]="icon"></nzi-picker>-->
+  <!--    <nzi-picker nziPlaceHolder="small size" nziSize="small" [(ngModel)]="icon"></nzi-picker>-->
+  <!--  </p>-->
+
+  <h2 nz-title>自定义宽度</h2>
+  <p nz-paragraph>
+    <nzi-picker nziPlaceHolder="custom width" style="width: 200px;" [(ngModel)]="icon"></nzi-picker>
+    <nzi-picker nziPlaceHolder="custom width" style="width: 300px;" [(ngModel)]="icon"></nzi-picker>
+  </p>
+
+  <h2 nz-title>带移除图标</h2>
+  <p>
+    <nzi-picker nziPlaceHolder="with clear icon" nziAllowClear [(ngModel)]="icon"></nzi-picker>
+  </p>
+
+  <h2 nz-title>在表单中使用</h2>
+  <div class="container-form">
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>文字</nz-form-label>
+        <nz-form-control [nzSpan]="18" [nzErrorTip]="'请输入文字'">
+          <input nz-input formControlName="text">
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>图标</nz-form-label>
+        <nz-form-control [nzSpan]="18" [nzErrorTip]="'请选择图标'">
+          <nzi-picker formControlName="icon"
+                      (ngModelChange)="valueChange($event)"
+                      (nziOnPicked)="onPicked($event)"
+          ></nzi-picker>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control [nzSpan]="18" [nzOffset]="6">
+          <button nz-button [nzType]="'primary'">确定</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</article>

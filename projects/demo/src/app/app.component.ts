@@ -8,6 +8,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'demo';
+  icon: string;
   validateForm: FormGroup;
   picker = {
     value: null,

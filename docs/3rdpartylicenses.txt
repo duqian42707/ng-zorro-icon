@@ -145,6 +145,8 @@ ng-zorro-antd/skeleton
 
 ng-zorro-antd/tooltip
 
+ng-zorro-antd/typography
+
 regenerator-runtime
 MIT
 MIT License
