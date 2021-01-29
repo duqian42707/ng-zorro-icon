@@ -1,6 +1,6 @@
 {
-  "name": "picker",
-  "version": "0.0.1",
+  "name": "ng-zorro-icon",
+  "version": "8.0.0",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",

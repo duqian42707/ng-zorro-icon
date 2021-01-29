@@ -1,24 +1,64 @@
-# Picker
+# ng-zorro-icon
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
 
-## Code scaffolding
+## startup
 
-Run `ng generate component component-name --project picker` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project picker`.
-> Note: Don't forget to add `--project picker` or else it will be added to the default project in your `angular.json` file. 
+```bash
+npm install ng-zorro-icon
+```
 
-## Build
+`app.module.ts`:
+```typescript
 
-Run `ng build picker` to build the project. The build artifacts will be stored in the `dist/` directory.
+import {PickerModule} from 'projects/picker/src/public-api';
 
-## Publishing
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    //
+    PickerModule,
+    NzButtonModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
 
-After building your library with `ng build picker`, go to the dist folder `cd dist/picker` and run `npm publish`.
+html:
+```html
 
-## Running unit tests
+<button nz-button nzType="primary" (click)="choose()">Choose Icon</button>
+<nzi-picker [selectedIcon]="'upload'" [(visible)]="picker.visible" (nziOnPickOk)="onPickOk($event)"></nzi-picker>
+```
 
-Run `ng test picker` to execute the unit tests via [Karma](https://karma-runner.github.io).
+component:
+```typescript
+import {Component} from '@angular/core';
 
-## Further help
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.less']
+})
+export class AppComponent {
+  title = 'demo';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  picker = {
+    visible: false
+  };
+
+  choose() {
+    this.picker.visible = true;
+  }
+
+  onPickOk(iconName) {
+    console.log('choose icon：', iconName);
+  }
+}
+```
