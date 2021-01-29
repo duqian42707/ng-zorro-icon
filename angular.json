@@ -60,7 +60,12 @@
             "aot": false,
             "assets": [
               "projects/demo/src/favicon.ico",
-              "projects/demo/src/assets"
+              "projects/demo/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "projects/demo/src/styles.less"

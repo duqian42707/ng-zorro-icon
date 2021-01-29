@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'nzi-icon-picker',
-  template: `
-    <p>
-      icon-picker works!
-    </p>
-  `,
-  styles: []
+  templateUrl: './icon-picker.component.html',
+  styleUrls: ['./icon-picker.component.less']
 })
 export class IconPickerComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
