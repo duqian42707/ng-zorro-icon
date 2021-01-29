@@ -2,9 +2,15 @@
 
 [![](https://img.shields.io/npm/v/ng-zorro-icon.svg)](https://www.npmjs.com/package/ng-zorro-icon)
 
-Icon Picker of [NG-ZORRO](https://github.com/NG-ZORRO/ng-zorro-antd) (version 8.x).
+[NG-ZORRO](https://github.com/NG-ZORRO/ng-zorro-antd) 的图标选择器。
 
-[NG-ZORRO](https://github.com/NG-ZORRO/ng-zorro-antd) (version 8.x) 的图标选择器。
+![](other/image1.gif)
+
+## 依赖
+
+Angular 8.x
+
+NG-ZORRO 8.x
 
 ## Install - 安装
 
@@ -15,7 +21,7 @@ npm install ng-zorro-icon
 
 ## Usage - 使用
 
-### Import module - 引入模块
+### 引入模块
 
 ```typescript
 import {NziPickerModule} from 'ng-zorro-icon';
