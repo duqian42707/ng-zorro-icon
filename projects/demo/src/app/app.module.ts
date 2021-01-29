@@ -6,7 +6,9 @@ import {AppComponent} from './app.component';
 import {NziPickerModule} from 'projects/picker/src/public-api';
 import {NzButtonModule, NzFormModule, NzInputModule} from 'ng-zorro-antd';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { CustomPickerComponent } from './custom-picker/custom-picker.component';
+import {CustomPickerComponent} from './custom-picker/custom-picker.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,10 @@ import { CustomPickerComponent } from './custom-picker/custom-picker.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     NziPickerModule,
     NzButtonModule,
