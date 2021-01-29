@@ -1,18 +1,28 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, forwardRef, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {ICON_GROUPS, IconGroup} from './picker.model';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 const DEFAULT_DISPLAY_ICON = 'search';
 
 @Component({
   selector: 'nzi-picker',
   templateUrl: './picker.component.html',
-  styleUrls: ['./picker.component.less']
+  styleUrls: ['./picker.component.less'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => NziPickerComponent),
+    multi: true
+  }]
 })
-export class NziPickerComponent implements OnInit, OnChanges {
+export class NziPickerComponent implements OnInit, OnChanges, ControlValueAccessor {
+
+  private innerValue: string;
+
+  @Output() nziOnPicked = new EventEmitter<string>();
 
   loading = false;
   iconGroups: IconGroup[] = [];
-  value: string;
+  disabled = false;
   displayIcon = DEFAULT_DISPLAY_ICON;
   // 控制弹框的一些属性
   modal = {
@@ -23,13 +33,24 @@ export class NziPickerComponent implements OnInit, OnChanges {
     value: null,
   };
 
+  private onTouchedCallback: any = () => void 0;
+  private onChangeCallback: any = () => void 0;
+
   constructor() {
   }
 
   ngOnInit() {
   }
 
-  afterOpen() {
+  get value(): string {
+    return this.innerValue;
+  }
+
+  set value(v: string) {
+    if (v !== this.innerValue) {
+      this.innerValue = v;
+      this.onChangeCallback(v);
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -42,11 +63,35 @@ export class NziPickerComponent implements OnInit, OnChanges {
     }
   }
 
+
+  // ------------------------------------------------------------------------
+  // | Control value accessor implements
+  // | 参考：https://www.jianshu.com/p/6d5a4e6af0c1
+  // ------------------------------------------------------------------------
+
+  registerOnChange(fn: any): void {
+    this.onChangeCallback = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouchedCallback = fn;
+  }
+
+  writeValue(obj: any): void {
+    if (this.innerValue !== obj) {
+      this.innerValue = obj;
+      this.setDisplayIcon(obj);
+    }
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
   // 打开弹框
   openModal(): void {
     this.modal.visible = true;
     this.loading = true;
-    // todo 改用rxjs实现
     setTimeout(() => {
       this.modal.searchKey = null;
       this.iconGroups = [...ICON_GROUPS];
@@ -66,12 +111,6 @@ export class NziPickerComponent implements OnInit, OnChanges {
   // 关闭弹框
   closeModal(): void {
     this.modal.visible = false;
-  }
-
-  // 选好图标
-  pickOk(): void {
-    this.value = this.modal.value;
-    this.closeModal();
   }
 
   // 搜索
@@ -95,8 +134,17 @@ export class NziPickerComponent implements OnInit, OnChanges {
     this.modal.value = icon;
   }
 
-  valueChange() {
-    const value = this.value;
+
+  // 选好图标
+  pickOk(): void {
+    this.value = this.modal.value;
+    this.nziOnPicked.emit(this.modal.value);
+    this.displayIcon = this.modal.value;
+    this.closeModal();
+  }
+
+  // 显示图标预览
+  setDisplayIcon(value) {
     const exist = ICON_GROUPS.some(group => {
       return group.icons.some(icon => icon === value);
     });

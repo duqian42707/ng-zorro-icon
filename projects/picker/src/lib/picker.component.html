@@ -1,12 +1,13 @@
-<nz-input-group class="form-input-group" [nzAddOnBeforeIcon]="displayIcon" [nzAddOnAfter]="addOnAfterTemplate">
-  <input nz-input [placeholder]="'输入或选择'" [(ngModel)]="value" (ngModelChange)="valueChange()"/>
+<nz-input-group class="form-input-group" [nzAddOnAfter]="addOnAfterTemplate">
+  <input [disabled]="disabled" nz-input [placeholder]="'输入或选择'" [(ngModel)]="value"
+         (ngModelChange)="setDisplayIcon($event)"/>
   <ng-template #addOnAfterTemplate>
-    <i class="input-btn" nz-icon nzType="search" (click)="openModal()"></i>
+    <i class="input-btn" nz-icon [nzType]="displayIcon" (click)="openModal()"></i>
   </ng-template>
 </nz-input-group>
 
 <nz-modal [nzTitle]="modal.title" [nzWidth]="modal.width" [nzOkLoading]="loading" [(nzVisible)]="modal.visible"
-          (nzOnOk)="pickOk()" (nzOnCancel)="closeModal()" (nzAfterOpen)="afterOpen()">
+          (nzOnOk)="pickOk()" (nzOnCancel)="closeModal()">
   <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzParagraph]="{ rows: 5 }">
     <!-- 搜索框 -->
     <nz-input-group [nzSuffix]="suffixIconSearch">

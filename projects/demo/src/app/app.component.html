@@ -1,1 +1,24 @@
-<nzi-picker></nzi-picker>
+<div class="container">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>文字</nz-form-label>
+      <nz-form-control [nzSpan]="18" [nzErrorTip]="'请输入文字'">
+        <input nz-input formControlName="text">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>图标</nz-form-label>
+      <nz-form-control [nzSpan]="18" [nzErrorTip]="'请选择图标'">
+        <nzi-picker formControlName="icon"
+                    (ngModelChange)="valueChange($event)"
+                    (nziOnPicked)="onPicked($event)"
+        ></nzi-picker>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzSpan]="18" [nzOffset]="6">
+        <button nz-button [nzType]="'primary'">确定</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
