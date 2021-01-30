@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.validateForm.patchValue({text: '导出', icon: 'export'});
+    // this.validateForm.patchValue({text: '导出', icon: 'export'});
   }
 
   choose() {

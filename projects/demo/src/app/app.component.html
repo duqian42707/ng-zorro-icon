@@ -33,13 +33,14 @@
       <nz-form-item>
         <nz-form-label [nzSpan]="6" nzRequired>文字</nz-form-label>
         <nz-form-control [nzSpan]="18" [nzErrorTip]="'请输入文字'">
-          <input nz-input formControlName="text">
+          <input nz-input formControlName="text" placeholder="请输入文字">
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
         <nz-form-label [nzSpan]="6" nzRequired>图标</nz-form-label>
-        <nz-form-control [nzSpan]="18" [nzErrorTip]="'请选择图标'">
+        <nz-form-control [nzSpan]="18" [nzErrorTip]="'请选择或输入图标名称'">
           <nzi-picker formControlName="icon"
+                      nziPlaceHolder="请选择或输入图标名称"
                       (ngModelChange)="valueChange($event)"
                       (nziOnPicked)="onPicked($event)"
           ></nzi-picker>

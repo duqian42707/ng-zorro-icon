@@ -1,9 +1,9 @@
 {
   "name": "ng-zorro-icon",
-  "version": "8.1.3",
+  "version": "8.1.4",
   "author": "duqian",
   "license": "MIT",
-  "description": "Icon Picker of NG-ZORRO] (version 8.x).",
+  "description": "Icon Picker of NG-ZORRO (version 8.x).",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
