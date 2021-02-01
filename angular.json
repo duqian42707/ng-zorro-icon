@@ -170,5 +170,8 @@
       }
     }
   },
-  "defaultProject": "picker"
+  "defaultProject": "picker",
+  "cli": {
+    "analytics": false
+  }
 }

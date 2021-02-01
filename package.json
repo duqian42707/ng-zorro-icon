@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build-demo": "ng build demo --prod",
-    "publish": "nrm use npm && ng build picker && cp -f README.md dist/picker && cd dist/picker && npm publish && nrm use taobao",
+    "publish": "nrm use npm && ng build picker --prod && cp -f README.md dist/picker && cd dist/picker && npm publish && nrm use taobao",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

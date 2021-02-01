@@ -8,9 +8,12 @@
 
 ## 依赖
 
-Angular 8.x
+| ng-zorro-icon | Angular | NG-ZORRO |
+| ------------- | ------- | -------- |
+| 8.x           | 8.x     | 8.x      |
+| 9.x           | 9.x     | 9.x      |
 
-NG-ZORRO 8.x
+
 
 ## Install - 安装
 
