@@ -1,7 +1,7 @@
 import {Component, EventEmitter, forwardRef, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {ICON_GROUPS, IconGroup} from './picker.model';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {InputBoolean} from 'ng-zorro-antd';
+import {InputBoolean} from 'ng-zorro-antd/core/util';
 
 const DEFAULT_DISPLAY_ICON = 'search';
 
