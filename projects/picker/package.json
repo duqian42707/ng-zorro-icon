@@ -16,6 +16,9 @@
     "icon",
     "frontend"
   ],
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:duqian42707/ng-zorro-icon.git"
