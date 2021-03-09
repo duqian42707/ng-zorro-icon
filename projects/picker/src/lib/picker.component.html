@@ -1,7 +1,7 @@
 <nz-input-group class="nzi-picker-input-group" [nzSuffix]="nziAllowClear?clearIconTemplate:null"
                 [nzAddOnAfter]="iconLabelTemplate">
-  <input nz-input [nzSize]="nziSize" [disabled]="disabled" [placeholder]="nziPlaceHolder" [(ngModel)]="value"
-         (ngModelChange)="setDisplayIcon($event)"/>
+  <input nz-input [readOnly]="!nziAllowTypeIn" [nzSize]="nziSize" [disabled]="disabled" [placeholder]="nziPlaceHolder"
+         [(ngModel)]="value" (ngModelChange)="setDisplayIcon($event)" (click)="!nziAllowTypeIn && openModal()"/>
   <ng-template #iconLabelTemplate>
     <i class="input-btn" nz-icon [nzType]="displayIcon" (click)="openModal()"></i>
   </ng-template>

@@ -27,6 +27,11 @@
     <nzi-picker nziPlaceHolder="with clear icon" nziAllowClear [(ngModel)]="icon"></nzi-picker>
   </p>
 
+  <h2 nz-title>禁用输入</h2>
+  <p>
+    <nzi-picker nziPlaceHolder="can't type in" [nziAllowTypeIn]="false" [(ngModel)]="icon"></nzi-picker>
+  </p>
+
   <h2 nz-title>在表单中使用</h2>
   <div class="container-form">
     <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
