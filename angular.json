@@ -73,6 +73,7 @@
               }
             ],
             "styles": [
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "projects/demo/src/styles.less"
             ],
             "scripts": []
@@ -136,6 +137,7 @@
               "projects/demo/src/assets"
             ],
             "styles": [
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "projects/demo/src/styles.less"
             ],
             "scripts": []
