@@ -87,11 +87,12 @@ export class AppModule {
 
 ### [nzi-picker] - `COMPONENT`
 
-| 参数               | 说明                   | 类型                   | 默认值  |
-| ------------------ | ---------------------- | ---------------------- | ------- |
-| `[ngModel]`        | 图标名称               | `string`               | `-`     |
-| `[nziAllowClear]`  | 是否显示清除按钮       | `boolean`              | `false` |
-| `[nziPlaceHolder]` | 选择框默认文字         | `string`               | `-`     |
+| 参数                | 说明              | 类型                   | 默认值  |
+| ------------------ | ----------------- | ---------------------- | ------- |
+| `[ngModel]`        | 图标名称            | `string`               | `-`     |
+| `[nziAllowClear]`  | 是否显示清除按钮     | `boolean`              | `false` |
+| `[nziAllowTypeIn]` | 是否允许输入图标名称  | `boolean`              | `true` |
+| `[nziPlaceHolder]` | 选择框默认文字       | `string`               | `-`     |
 | `(ngModelChange)`  | 图标名称发生变化的回调 | `EventEmitter<string>` | `-`     |
 | `(nziOnPicked)`    | 通过弹框选择图标的回调 | `EventEmitter<string>` | `-`     |
 
