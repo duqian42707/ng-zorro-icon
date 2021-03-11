@@ -20,6 +20,7 @@ export class NziPickerComponent implements OnInit, OnChanges, ControlValueAccess
   private innerValue: string;
 
   @Input() @InputBoolean() nziAllowClear = false;
+  @Input() @InputBoolean() nziAllowTypeIn = true;
   @Input() nziPlaceHolder = '';
   @Output() nziOnPicked = new EventEmitter<string>();
 
