@@ -1,6 +1,6 @@
 {
   "name": "ng-zorro-icon",
-  "version": "11.1.0",
+  "version": "11.2.0",
   "author": "duqian",
   "license": "MIT",
   "description": "Icon Picker of NG-ZORRO.",
@@ -22,5 +22,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:duqian42707/ng-zorro-icon.git"
-  }
+  },
+  "homepage": "https://duqian42707.github.io/ng-zorro-icon/"
 }
