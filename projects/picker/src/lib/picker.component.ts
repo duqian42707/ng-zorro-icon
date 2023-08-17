@@ -149,7 +149,11 @@ export class NziPickerComponent implements OnInit, OnChanges, ControlValueAccess
   }
 
   // 显示图标预览
-  setDisplayIcon(value) {
+  setDisplayIcon(inputTxt) {
+    let value = inputTxt;
+    if (inputTxt && inputTxt.startsWith('anticon-')) {
+      value = value.substring('anticon-'.length);
+    }
     const exist = ICON_GROUPS.some(group => {
       return group.icons.some(icon => icon === value);
     });
